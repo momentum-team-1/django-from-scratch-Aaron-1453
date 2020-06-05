@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}{% endblock %}
     <title>{% block title %}Code Snippet{% endblock %} </title>
+    <h1>Code Snippet base.html</h1>
+    {% if user.is_authenticated %}
 </head>
 <body>
-{% block content %}
-{% endblock %}
+    <div>
+        Hello, {{ user.username }}!
+        <a href="{% url 'auth_logout' %}">Logout</a>
+    </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

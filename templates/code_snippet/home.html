@@ -1,9 +1,14 @@
+{% extends "base.html" %}
 
+{% block content %}
+    {% if user.is_authenticated %}
+        <h2>Your code snippets</h2>
+    {% else %}
 
-<h1>Code Snippet</h1>
+        <div>
+            <h2>Welcome to the Code Snippets app!</h2>
+            <p>Please <a href="{% url 'auth_login' %}">login</a> or <a href="{% url 'registration_register' %}">create a new account</a>.</p>
+        </div>
+    {% endif %}
 
-<div>
-    <h2>Welcome to the Code Snippets app!</h2>
-    <p>Please <a href="{% url 'auth_login' %}">login</a> or <a href="{% url 'registration_register' %}">create a new account</a>.</p>
-</div>
-
+{% endblock %}
