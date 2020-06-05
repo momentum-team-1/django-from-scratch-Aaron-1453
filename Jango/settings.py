@@ -52,9 +52,6 @@ INSTALLED_APPS = [
     # Project-specific
     'users',
     'code_snippet',
-    # 'title',
-    # 'description',
-    # 'body',
 ]
 
 MIDDLEWARE = [
