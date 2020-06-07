@@ -10,5 +10,6 @@ def homepage(request):
 
 
 def snippet_list(request):
-    code_snippet = request.user.code_snippets.all()
-    return render(request, "code_snippet/snippet_list.html", {"code_snippet": code_snippet})
+    your_snippets = request.user.code_snippets.all()
+    return render(request, "code_snippet/snippet_list.html", {"your_snippets": your_snippets})
+
