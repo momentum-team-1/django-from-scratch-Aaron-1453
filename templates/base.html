@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta %}{% endblock %}
     <title>{% block title %}Code Snippet{% endblock %} </title>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
     <h1><a href="{% url 'homepage' %}">Code Snippet</a></h1>
     {% if user.is_authenticated %}
 </head>
