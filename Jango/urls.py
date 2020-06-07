@@ -21,8 +21,10 @@ from code_snippet import views as code_snippet_views
 
 urlpatterns = [
     path('', code_snippet_views.homepage, name="homepage"),
+    path('code_snippet/', code_snippet_views.snippet_list, name='snippet_list'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
+    
     
 ]
 
