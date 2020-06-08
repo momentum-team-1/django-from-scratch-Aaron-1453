@@ -14,6 +14,6 @@ def snippet_list(request):
     return render(request, "code_snippet/snippet_list.html", {"your_snippets": your_snippets})
 
 @login_required
-def snippet_detail(request, pk):
-    snippet = get_object_or_404(request.user.code_snippets, pk=pk)
+def snippet_detail(request, snippet_pk):
+    snippet = get_object_or_404(request.user.code_snippets, pk=snippet_pk)
     return render(request, "code_snippet/snippet_detail.html", {"snippet": snippet})
