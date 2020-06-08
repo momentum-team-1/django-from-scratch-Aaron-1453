@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Code Snippets - {{ snippet.title }}
+
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ snippet.title }}</h2>
+
+<h3>here's the snippet:</h3>
+
+<ol>
+    {% if snippet.body %}
+        <p>{{ snippet.body }}</p>
+    {% endif %}
+</ol>
+{% endblock %}

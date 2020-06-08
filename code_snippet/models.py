@@ -12,7 +12,7 @@ class CodeSnippet(models.Model):
     title = models.CharField(max_length=255)
     language = models.CharField(max_length=255)
     created_at = models.DateField(max_length=255)
-    body = models.CharField(max_length=2000)
+    body = models.TextField(max_length=2000)
     tags = models.ManyToManyField(to=Tag, related_name='tag_snippets')
     
     def __str__(self):
