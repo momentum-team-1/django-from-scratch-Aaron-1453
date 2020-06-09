@@ -13,7 +13,7 @@ Code Snippets - {{ snippet.title }}
 <h3>here's the snippet:</h3>
 
 <ol>
-    {% if snippet.body %}
+    {% if snippet.body.all %}
         <p>{{ snippet.body }}</p>
     {% endif %}
 </ol>
