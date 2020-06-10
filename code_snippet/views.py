@@ -46,3 +46,12 @@ def edit_snippet(request, snippet_pk):
         form = SnippetForm(instance=snippet)
     
     return render(request, "code_snippet/edit_snippet.html", {'form': form, 'snippet': snippet})
+
+@login_required
+def delete_snippet(request, snippet_pk):
+    snippet = get_object_or_404(request.user.code_snippets, pk=snippet_pk)
+    if request.method == "POST":
+        snippet.delete()
+        return redirect(to="snippet_list")
+    
+    return render(request, "code_snippet/delete_snippet.html", {"snippet": snippet })
