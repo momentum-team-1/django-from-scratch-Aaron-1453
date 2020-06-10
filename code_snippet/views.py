@@ -24,10 +24,25 @@ def add_new_snippet(request):
     if request.method == "POST":
         form = SnippetForm(data=request.POST)
         if form.is_valid():
-            snippet = form.save(commit=False)
-            snippet.user = request.user
-            snippet.save()
-        return redirect(to='snippet_detail', snippet_pk=snippet.pk)
+            new_snippet = form.save(commit=False)
+            new_snippet.user = request.user
+            new_snippet.save()
+        return redirect(to='snippet_detail', snippet_pk=new_snippet.pk)
     else:
         form = SnippetForm()
     return render(request, 'code_snippet/add_new_snippet.html', {"form": form})
+
+@login_required
+def edit_snippet(request, snippet_pk):
+    snippet = get_object_or_404(request.user.code_snippets, pk=snippet_pk)
+    
+    if request.method == "POST":
+        form = SnippetForm(instance=snippet, data=request.POST)
+        if form.is_valid():
+            snippet = form.save()
+            return redirect(to='snippet_detail', snippet_pk=snippet.pk)
+
+    else:
+        form = SnippetForm(instance=snippet)
+    
+    return render(request, "code_snippet/edit_snippet.html", {'form': form, 'snippet': snippet})

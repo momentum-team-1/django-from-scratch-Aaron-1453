@@ -8,12 +8,12 @@ Code Snippets - {{ snippet.title }}
 
 {% block content %}
 
-<h2>{{ snippet.title }}</h2>
+<h2>{{ snippet.title }} <small class="f6"><a href="{% url 'edit_snippet' snippet_pk=snippet.pk %}">Edit this snippet</a></small></h2>
 
 <h3>here's the snippet:</h3>
 
 <ol>
-    {% if snippet.body.all %}
+    {% if snippet.body %}
         <p>{{ snippet.body }}</p>
     {% endif %}
 </ol>
