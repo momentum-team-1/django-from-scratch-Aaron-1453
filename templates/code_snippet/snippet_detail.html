@@ -27,4 +27,11 @@ Code Snippets - {{ snippet.title }}
         <p>{{ snippet.body }}</p>
     {% endif %}
 </ol>
+
+<ol>
+    {% for tag in snippet.tags.all  %}
+        {{ tag }}
+    {% endfor %}
+</ol>
+
 {% endblock %}

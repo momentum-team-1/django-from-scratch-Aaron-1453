@@ -29,7 +29,6 @@ urlpatterns = [
     path('code_snippet/add_new_snippet', code_snippet_views.add_new_snippet, name="add_new_snippet"),
     path('snippets/<int:snippet_pk>/edit_snippet/', code_snippet_views.edit_snippet, name='edit_snippet'),
     path('snippets/<int:snippet_pk>/delete_snippet/', code_snippet_views.delete_snippet, name='delete_snippet'), 
-    
 ]
 
 if settings.DEBUG:
