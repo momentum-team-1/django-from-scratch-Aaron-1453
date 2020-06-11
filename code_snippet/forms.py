@@ -1,5 +1,5 @@
 from django import forms
-from .models import CodeSnippet, Tag
+from .models import CodeSnippet
 
 class SnippetForm(forms.ModelForm):
     class Meta:
@@ -8,4 +8,6 @@ class SnippetForm(forms.ModelForm):
             'title', 
             'language',  
             'body',
+            'tags'
             ]
+        

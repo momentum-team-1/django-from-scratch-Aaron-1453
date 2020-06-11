@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from users.models import User
-from .models import CodeSnippet
+from .models import CodeSnippet 
 from django.contrib.auth.decorators import login_required
 from .forms import SnippetForm
 # Create your views here.
@@ -27,6 +27,7 @@ def add_new_snippet(request):
             new_snippet = form.save(commit=False)
             new_snippet.user = request.user
             new_snippet.save()
+            form.save_m2m()
         return redirect(to='snippet_detail', snippet_pk=new_snippet.pk)
     else:
         form = SnippetForm()
@@ -55,3 +56,4 @@ def delete_snippet(request, snippet_pk):
         return redirect(to="snippet_list")
     
     return render(request, "code_snippet/delete_snippet.html", {"snippet": snippet })
+

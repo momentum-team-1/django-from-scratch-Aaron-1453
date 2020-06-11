@@ -19,6 +19,7 @@ from django.urls import include, path
 from code_snippet import views as code_snippet_views
 
 
+
 urlpatterns = [
     path('', code_snippet_views.homepage, name="homepage"),
     path('code_snippet/', code_snippet_views.snippet_list, name='snippet_list'),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('code_snippet/add_new_snippet', code_snippet_views.add_new_snippet, name="add_new_snippet"),
     path('snippets/<int:snippet_pk>/edit_snippet/', code_snippet_views.edit_snippet, name='edit_snippet'),
     path('snippets/<int:snippet_pk>/delete_snippet/', code_snippet_views.delete_snippet, name='delete_snippet'), 
+    
 ]
 
 if settings.DEBUG:
