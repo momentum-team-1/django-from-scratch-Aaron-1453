@@ -1,29 +1,26 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<div class="container search-container" style="padding: 0; margin-top: 50px">
+    <h2 class="heading">Search snippet by title</h2>
 
-{% block content %}
+    <form action="{% url 'search_snippet' %}" method="GET">
+        <input type="search" name="q" placeholder="Search Title" style="margin-bottom: 10px"/>
+        <p>
+            <button type="submit">Find Snippet</button>
+            <a class="button" href="{% url 'search_snippet' %}">Clear Search</a>
+        </p>
+    </form>
+    
+    {% if snippet is not None %}
+    <ul>
+        {% for snippet in snippet %} {% if person_id == code_snippet.user.title %}
+        <li>
+            <a href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a>
+        </li>
+        {% endif %} {% empty %}
+        <li>No snippets match that title</li>
+        {% endfor %}
+    </ul>
+</div>
 
-<h2>Type the name of the snippet you're looking for</h2>
 
-<form action="{% url 'search_snippet' %}" method="GET">
-    <input type="search" name="q" placeholder="Search all snippets" > 
-    <p>
-        <button type="submit">Find Snippet</button>
-        <button type="submit"><a  href="{% url 'search_snippet' %}">Clear Search</a></button>
-    </p>
-</form>
-
-{% if snippet is not None %}
-<ul>
-    {% for snippet in snippet %}
-        {% if person_id == code_snippet.user.title %}
-            <li><button ><a href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a></button></li>   
-        {% endif %}
-    {% empty %} 
-            <li>No snippets match that title</li>
-    {% endfor %}
-</ul>
-        
-{% endif %}
-        
-
-{% endblock %}
+{% endif %} {% endblock %}

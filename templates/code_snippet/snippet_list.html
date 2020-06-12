@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Your snippets</h2>
-<p>
-    <a href="{% url 'add_new_snippet' %}">Add new snippet</a>
-</p>
-<ul>
-    {% for snippet in your_snippets.all %}
-        <li><a class="list" href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a></li>
-    {% endfor %}
-</ul>
+<div class="container" style="margin-top: 50px;">
+        <div class="row row-center">
+            <h2 class="heading" style="margin-bottom: 25px;">Snippets</h2>
+        </div>
+        <div class="row row-center">
+            <ul class="list">
+                {% for snippet in your_snippets.all %}
+                    <li><a href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</div>
 {% endblock %}

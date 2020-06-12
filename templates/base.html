@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block meta %}{% endblock %}
     <title>{% block title %}Code Snippet{% endblock %} </title>
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-    <link rel="stylesheet" href="{% static 'snippet.css' %}"/> 
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <link rel="stylesheet" href="{% static 'snippet.css' %}" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&family=Raleway:ital,wght@0,600;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.shoelace.style/1.0.0-beta.25/shoelace.css">
 </head>
 
-    {% if user.is_authenticated %}
-<body class="sans-serif">
-    <div class="mw8 center ph3 pv4">
-        <h1 class="title">Hello, {{ user.username }}!</h1>
-        
+{% if user.is_authenticated %}
+
+<body>
+    <div>
+    <div class="container header">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="heading">Hello, {{ user.username }}!</h1>
+            </div>
+            <div class="row row-end col-6">
+                <a class="button" href="{% url 'homepage' %}">Home</a>
+                <a class="button" href="{% url 'add_new_snippet' %}">Add new snippet</a>
+                <a class="button" href="{% url 'search_snippet' %}">Find a snippet</a>
+                <a class="button" href="{% url 'auth_logout' %}">Logout</a>
+            </div>
+        </div>
     </div>
+    
+    </div>
+
     {% endif %}
-    <a class="rounded-corners" href="{% url 'auth_logout' %}">Logout</a>
-    <a class="rounded-corners" href="{% url 'homepage' %}">Home</a>
-    <a class="rounded-corners" href="{% url 'search_snippet' %}">Find a snippet</a>
     {% block content %}
     {% endblock %}
-
+<div class="container">
+    <div class="header row row-center">
+        Copyright Aaron O'Brien, Powered by Django
+    </div>
+</div>
 </body>
+
 </html>

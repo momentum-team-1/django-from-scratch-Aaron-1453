@@ -7,31 +7,38 @@ Code Snippets - {{ snippet.title }}
 {% endblock %}
 
 {% block content %}
+<div class="container" style="margin-top: 50px">
+    <div class="row row-center">
+        <h2 class="heading">{{ snippet.title }}</h2>
+    </div>
+    <div class="row row-center">
+        <ol>
+            {% if snippet.language %}
+            <p> Language: {{ snippet.language }}</p>
+            {% endif %}
+        </ol>
+    </div>
+    <div class="row row-center">
+        <ol>
+            {% if snippet.body %}
+            Snippet Description:<p>{{ snippet.body }}</p>
+            {% endif %}
+        </ol>
+    </div>
+        <div class="row row-center">
+            <ol>
+                {% for tag in snippet.tags.all  %}
+                Tags: {{ tag }}
+                {% endfor %}
+            </ol>
+        </div>
 
-<h2>{{ snippet.title }} 
-    
-    <small class="f6"><a href="{% url 'edit_snippet' snippet_pk=snippet.pk %}">Edit this snippet</a></small></h2>
-
-    <small class="f6"><a href="{% url 'delete_snippet' snippet_pk=snippet.pk %}">Delete this snippet</a></small></h2>
-
-<h3>here's the snippet:</h3>
-
-<ol>
-    {% if snippet.language %}
-        <p> Language: {{ snippet.language }}</p>
-    {% endif %}
-</ol>
-
-<ol>
-    {% if snippet.body %}
-       The snippet itself: <p>{{ snippet.body }}</p>
-    {% endif %}
-</ol>
-
-<ol>
-    {% for tag in snippet.tags.all  %}
-       Tags: {{ tag }}
-    {% endfor %}
-</ol>
+        <div class="row row-center">
+                <small class="f6" style="margin-right: 15px"><a href="{% url 'edit_snippet' snippet_pk=snippet.pk %}">Edit this snippet</a></small>
+            
+                <small class="f6"><a href="{% url 'delete_snippet' snippet_pk=snippet.pk %}">Delete this snippet</a></small>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

@@ -13,6 +13,6 @@ class SnippetForm(forms.ModelForm):
         
         widgets = {
         'title' : forms.TextInput(attrs={'class': 'pa1 w-50'}),
-        'body': forms.TextInput(attrs={'class': 'pa5 w-50'}),
+        'body': forms.Textarea(),
         'tags': forms.TextInput(attrs={'class': 'pa2 w-20'})
     }
