@@ -1,0 +1,34 @@
+.sans-serif {
+    background-color: #D7DAE5;
+    font-size: 1.25rem;
+    font-family: athelas, georgia, serif;
+    border-style: solid; border-width: 1px;
+    text-decoration: none;
+}
+
+.rounded-corners {
+    border-radius: 20px;
+    background: #6B7D7D;
+    padding: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.main-title {
+    color: #6B7D7D;
+    text-decoration: none;
+}
+
+.title {
+    text-align: center;
+    background-color: #B9CDDA;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.list {
+    text-decoration: none;
+    
+}

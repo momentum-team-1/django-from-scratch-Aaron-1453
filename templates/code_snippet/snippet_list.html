@@ -7,7 +7,7 @@
 </p>
 <ul>
     {% for snippet in your_snippets.all %}
-        <li><a href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a></li>
+        <li><a class="list" href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a></li>
     {% endfor %}
 </ul>
 {% endblock %}

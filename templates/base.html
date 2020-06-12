@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,18 +7,21 @@
     {% block meta %}{% endblock %}
     <title>{% block title %}Code Snippet{% endblock %} </title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-    <h1><a href="{% url 'homepage' %}">Code Snippet</a></h1>
-    {% if user.is_authenticated %}
+    <link rel="stylesheet" href="{% static 'snippet.css' %}"/> 
 </head>
+
+    {% if user.is_authenticated %}
 <body class="sans-serif">
     <div class="mw8 center ph3 pv4">
-        <div class="pa2 bg-light-silver"></div>
-        <h1>Hello, {{ user.username }}!</h1>
-        <a href="{% url 'auth_logout' %}">Logout</a>
+        <h1 class="title">Hello, {{ user.username }}!</h1>
+        
     </div>
     {% endif %}
-    <a href="{% url 'search_snippet' %}">find a particular snippet</a>
+    <a class="rounded-corners" href="{% url 'auth_logout' %}">Logout</a>
+    <a class="rounded-corners" href="{% url 'homepage' %}">Home</a>
+    <a class="rounded-corners" href="{% url 'search_snippet' %}">Find a snippet</a>
     {% block content %}
     {% endblock %}
+
 </body>
 </html>

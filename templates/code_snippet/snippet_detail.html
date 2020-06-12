@@ -18,19 +18,19 @@ Code Snippets - {{ snippet.title }}
 
 <ol>
     {% if snippet.language %}
-        <p>{{ snippet.language }}</p>
+        <p> Language: {{ snippet.language }}</p>
     {% endif %}
 </ol>
 
 <ol>
     {% if snippet.body %}
-        <p>{{ snippet.body }}</p>
+       The snippet itself: <p>{{ snippet.body }}</p>
     {% endif %}
 </ol>
 
 <ol>
     {% for tag in snippet.tags.all  %}
-        {{ tag }}
+       Tags: {{ tag }}
     {% endfor %}
 </ol>
 
