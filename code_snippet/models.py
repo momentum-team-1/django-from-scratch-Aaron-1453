@@ -17,7 +17,7 @@ class CodeSnippet(models.Model):
     def __str__(self):
         return self.title
 
-def search_snippet(user,query):
+def search_snippet_for_user(user, query):
     return user.code_snippet.filter(Q(title__icontains=query))
 
     

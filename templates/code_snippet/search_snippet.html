@@ -19,7 +19,7 @@
             <li><button ><a href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a></button></li>   
         {% endif %}
     {% empty %} 
-            <li>No snippets match that description</li>
+            <li>No snippets match that title</li>
     {% endfor %}
 </ul>
         

@@ -6,7 +6,7 @@
     {% block meta %}{% endblock %}
     <title>{% block title %}Code Snippet{% endblock %} </title>
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-    <h1><a href="{% url 'homepage' %}">Code Snippet base.html</a></h1>
+    <h1><a href="{% url 'homepage' %}">Code Snippet</a></h1>
     {% if user.is_authenticated %}
 </head>
 <body class="sans-serif">
@@ -16,6 +16,7 @@
         <a href="{% url 'auth_logout' %}">Logout</a>
     </div>
     {% endif %}
+    <a href="{% url 'search_snippet' %}">find a particular snippet</a>
     {% block content %}
     {% endblock %}
 </body>

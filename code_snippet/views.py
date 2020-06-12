@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from users.models import User
-from .models import CodeSnippet 
+from .models import CodeSnippet, search_snippet_for_user
 from django.contrib.auth.decorators import login_required
 from .forms import SnippetForm
 from django.db.models import Q
