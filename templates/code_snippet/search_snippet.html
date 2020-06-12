@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Search Snippets</h2>
+
+<form action="{% url 'search_snippet' %}" method="GET">
+    <input type="search" name="q" placeholder="Search all snippets" > value="{{ query }}">
+    <p>
+        <button type="submit">Find Snippet</button>
+        <button type="submit"><a  href="{% url 'search_snippet' %}">Clear Search</a></button>
+    </p>
+</form>
+
+{% if snippet is not None %}
+<ul>
+    {% for snippet in snippet %}
+        {% if person_id == code_snippet.user.title %}
+            <li><button ><a href="{% url 'snippet_detail' snippet_pk=snippet.pk %}">{{ snippet.title }}</a></button></li>
+            <li>No snippets match that description</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+        
+{% endif %}
+        
+
+{% endblock %}

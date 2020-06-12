@@ -3,6 +3,7 @@ from users.models import User
 from .models import CodeSnippet 
 from django.contrib.auth.decorators import login_required
 from .forms import SnippetForm
+from django.db.models import Q
 # Create your views here.
 def homepage(request):
     if request.user.is_authenticated:
@@ -57,3 +58,18 @@ def delete_snippet(request, snippet_pk):
     
     return render(request, "code_snippet/delete_snippet.html", {"snippet": snippet })
 
+@login_required
+def search_snippet(request):
+    
+    query = request.GET.get('q')
+
+    if query is not None:
+        snippet = CodeSnippet.objects.filter(Q(title__icontains=query))
+    else:
+        snippet = None
+
+    return render(request, "code_snippet/search_snippet.html", {
+        "snippet": snippet, 
+        "query": query
+    })
+    
