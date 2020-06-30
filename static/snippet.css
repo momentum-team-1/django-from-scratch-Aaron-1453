@@ -1,0 +1,41 @@
+body {
+    background-color: #F7F7F2;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+.header {
+    padding-top: 50px;
+    background-color: #899878;
+    color: #F7F7F2;
+    padding: 25px;
+}
+
+.header a {
+    margin-right: 10px;
+    background-color: #222725;
+    border: none;
+}
+
+.heading {
+    font-family: 'Raleway', sans-serif;
+}
+
+.form-container button {
+    background-color: #222725;
+    border: none
+}
+
+.search-container button {
+    background-color: #222725;
+    border: none;
+}
+
+.search-container a {
+    background-color: #222725;
+    border: none;
+}
+
+.list {
+    text-decoration: none;
+}
